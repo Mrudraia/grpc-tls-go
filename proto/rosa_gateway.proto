@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+option go_package = "github.com/mrudraia/grpc-tls-go/pb";
+
+package pb;
+
+message InstallRequest {
+    string name = 1;
+    string kind = 2;
+    bytes Data = 3;
+}
+
+message InstallResponse {
+    uint32 code = 1;
+    string response = 2;
+}
+
+service RosaService{
+    rpc InstallAgent(InstallRequest) returns (InstallResponse);
+}
